@@ -1,0 +1,1638 @@
+{
+ "about": "Bibliothek der Einheiten. 'sport' ist cycling, running, swimming, strength oder brick. 'spec' ist das Workout-Format von workouts.py (Rad: Leistung in % FTP; Lauf/Schwimmen: Ziel als Text; Kraft: Übungen mit Garmin-Namen). Wiederholungen, Dauer und Bereiche dürfen an den Tag angepasst werden.",
+ "sessions": {
+  "vo2_30_15": {
+   "focus": "vo2max",
+   "name": "VO2max 30/15",
+   "evidence": "Kurze 30/15-Intervalle steigerten VO2max und Leistung bei trainierten Radfahrern stärker als lange Intervalle bei gleicher Anstrengung (Rønnestad et al. 2015, 2020).",
+   "spec": {
+    "name": "VO2max 30/15",
+    "description": "3 Sätze 13 x 30 s hart / 15 s locker",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 3,
+      "between": {
+       "kind": "recovery",
+       "min": 3,
+       "pct": [
+        45,
+        55
+       ]
+      },
+      "steps": [
+       {
+        "repeat": 13,
+        "steps": [
+         {
+          "kind": "interval",
+          "sec": 30,
+          "pct": [
+           120,
+           130
+          ],
+          "label": "30 s hart"
+         },
+         {
+          "kind": "recovery",
+          "sec": 15,
+          "pct": [
+           45,
+           55
+          ],
+          "label": "15 s locker"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "vo2_5x4": {
+   "focus": "vo2max",
+   "name": "VO2max 5 x 4 min",
+   "evidence": "Intervalle von 3-5 min bei 106-120 % FTP maximieren die Zeit nahe der VO2max (Buchheit & Laursen 2013).",
+   "spec": {
+    "name": "VO2max 5x4 min",
+    "description": "5 x 4 min bei 106-115 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 5,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 4,
+        "pct": [
+         106,
+         115
+        ],
+        "label": "VO2max"
+       },
+       {
+        "kind": "recovery",
+        "min": 3,
+        "pct": [
+         45,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "vo2_6x3": {
+   "focus": "vo2max",
+   "name": "VO2max 6 x 3 min",
+   "evidence": "Kürzere, etwas härtere VO2max-Intervalle bringen das Herz-Kreislauf-System schnell an die Obergrenze (Buchheit & Laursen 2013).",
+   "spec": {
+    "name": "VO2max 6x3 min",
+    "description": "6 x 3 min bei 112-120 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 3,
+        "pct": [
+         112,
+         120
+        ],
+        "label": "VO2max"
+       },
+       {
+        "kind": "recovery",
+        "min": 3,
+        "pct": [
+         45,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "vo2_4x8": {
+   "focus": "vo2max",
+   "name": "Aerobe Leistung 4 x 8 min",
+   "evidence": "4 x 8 min brachte in einer Vergleichsstudie größere Fortschritte als 4 x 4 min oder 4 x 16 min (Seiler et al. 2013).",
+   "spec": {
+    "name": "Aerob 4x8 min",
+    "description": "4 x 8 min bei 100-105 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 4,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 8,
+        "pct": [
+         100,
+         105
+        ],
+        "label": "8 min hart"
+       },
+       {
+        "kind": "recovery",
+        "min": 2,
+        "pct": [
+         45,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "ana_sit_6x30": {
+   "focus": "anaerobic",
+   "name": "Sprint-Intervalle 6 x 30 s",
+   "evidence": "30-s-Vollgas-Intervalle verbessern anaerobe Kapazität und sogar die VO2max (Gist et al. 2014).",
+   "spec": {
+    "name": "Anaerob 6x30 s",
+    "description": "6 x 30 s Vollgas, 4 min locker",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "interval",
+        "sec": 30,
+        "pct": [
+         150,
+         200
+        ],
+        "label": "30 s Vollgas"
+       },
+       {
+        "kind": "recovery",
+        "min": 4,
+        "pct": [
+         40,
+         50
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "ana_8x1": {
+   "focus": "anaerobic",
+   "name": "Anaerob 8 x 1 min",
+   "evidence": "Wiederholte 1-min-Belastungen über der VO2max-Leistung trainieren die anaerobe Ausdauer (Laursen & Jenkins 2002).",
+   "spec": {
+    "name": "Anaerob 8x1 min",
+    "description": "8 x 1 min bei 130-150 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 8,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 1,
+        "pct": [
+         130,
+         150
+        ],
+        "label": "1 min hart"
+       },
+       {
+        "kind": "recovery",
+        "min": 2,
+        "pct": [
+         40,
+         50
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "ana_5x2": {
+   "focus": "anaerobic",
+   "name": "Anaerob 5 x 2 min",
+   "evidence": "2-min-Intervalle an der Grenze zwischen VO2max und anaerober Kapazität verbessern die Laktattoleranz (Laursen & Jenkins 2002).",
+   "spec": {
+    "name": "Anaerob 5x2 min",
+    "description": "5 x 2 min bei 120-130 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 5,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 2,
+        "pct": [
+         120,
+         130
+        ],
+        "label": "2 min hart"
+       },
+       {
+        "kind": "recovery",
+        "min": 4,
+        "pct": [
+         40,
+         50
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "ana_sprints": {
+   "focus": "anaerobic",
+   "name": "Sprints 3 x 3 x 15 s",
+   "evidence": "Kurze Maximal-Sprints mit voller Pause trainieren Spitzenleistung und Nerv-Muskel-Ansteuerung (Gist et al. 2014).",
+   "spec": {
+    "name": "Sprints 3x3x15 s",
+    "description": "3 Sätze mit je 3 Sprints a 15 s",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 3,
+      "between": {
+       "kind": "recovery",
+       "min": 5,
+       "pct": [
+        45,
+        55
+       ]
+      },
+      "steps": [
+       {
+        "repeat": 3,
+        "steps": [
+         {
+          "kind": "interval",
+          "sec": 15,
+          "pct": [
+           200,
+           250
+          ],
+          "label": "Sprint"
+         },
+         {
+          "kind": "recovery",
+          "min": 2,
+          "pct": [
+           45,
+           55
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 15,
+      "pct": [
+       60,
+       70
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_z2_60": {
+   "focus": "base",
+   "name": "Grundlage 60 min",
+   "evidence": "Viel lockerer Umfang ist die Basis der Ausdauer; rund 80 % der Trainingszeit sollten locker sein (Seiler 2010).",
+   "spec": {
+    "name": "Grundlage 60 min",
+    "description": "60 min ruhig bei 62-72 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 10,
+      "pct": [
+       50,
+       60
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 45,
+      "pct": [
+       62,
+       72
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 5,
+      "pct": [
+       45,
+       55
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_z2_90": {
+   "focus": "base",
+   "name": "Grundlage 90 min",
+   "evidence": "Viel lockerer Umfang ist die Basis der Ausdauer; rund 80 % der Trainingszeit sollten locker sein (Seiler 2010).",
+   "spec": {
+    "name": "Grundlage 90 min",
+    "description": "90 min ruhig bei 62-72 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 10,
+      "pct": [
+       50,
+       60
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 75,
+      "pct": [
+       62,
+       72
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 5,
+      "pct": [
+       45,
+       55
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_long": {
+   "focus": "base",
+   "name": "Lange Grundlage",
+   "evidence": "Lange, lockere Ausfahrten erhöhen Umfang und Fettstoffwechsel; entscheidend ist der Gesamtumfang, nicht eine magische 'Zone 2' (Storoschuk et al. 2025).",
+   "spec": {
+    "name": "Lange Grundlage 3 h",
+    "description": "3 h ruhig bei 60-72 % FTP, Dauer nach Zeit anpassen",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       50,
+       60
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 155,
+      "pct": [
+       60,
+       72
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       55
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_sst_3x15": {
+   "focus": "base",
+   "name": "Sweet Spot 3 x 15 min",
+   "evidence": "Ein mittelintensiver Reiz pro Woche ergänzt eine pyramidale Intensitätsverteilung (Oliveira et al. 2024).",
+   "spec": {
+    "name": "Sweet Spot 3x15 min",
+    "description": "3 x 15 min bei 88-93 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 3,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 15,
+        "pct": [
+         88,
+         93
+        ],
+        "label": "Sweet Spot"
+       },
+       {
+        "kind": "recovery",
+        "min": 5,
+        "pct": [
+         50,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_tempo_2x20": {
+   "focus": "base",
+   "name": "Tempo 2 x 20 min",
+   "evidence": "Ein mittelintensiver Reiz pro Woche ergänzt eine pyramidale Intensitätsverteilung (Oliveira et al. 2024).",
+   "spec": {
+    "name": "Tempo 2x20 min",
+    "description": "2 x 20 min bei 80-87 % FTP",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 2,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 20,
+        "pct": [
+         80,
+         87
+        ],
+        "label": "Tempo"
+       },
+       {
+        "kind": "recovery",
+        "min": 5,
+        "pct": [
+         50,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 10,
+      "pct": [
+       60,
+       70
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "base_z2_spinups": {
+   "focus": "base",
+   "name": "Grundlage mit Sprints",
+   "evidence": "Kurze Sprints in lockeren Einheiten halten die Spitzenleistung, ohne zu ermüden (Gist et al. 2014).",
+   "spec": {
+    "name": "Grundlage + 6 Sprints",
+    "description": "Grundlage mit 6 x 10 s Sprint",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 10,
+      "pct": [
+       50,
+       60
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 25,
+      "pct": [
+       62,
+       72
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "interval",
+        "sec": 10,
+        "pct": [
+         180,
+         250
+        ],
+        "label": "Sprint"
+       },
+       {
+        "kind": "steady",
+        "sec": 170,
+        "pct": [
+         60,
+         70
+        ],
+        "label": "Grundlage"
+       }
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 15,
+      "pct": [
+       62,
+       72
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "kind": "cooldown",
+      "min": 5,
+      "pct": [
+       45,
+       55
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "rec_spin_40": {
+   "focus": "recovery",
+   "name": "Ausrollen 40 min",
+   "evidence": "Sehr lockeres Fahren fördert die Erholung, ohne neue Ermüdung zu erzeugen (Seiler 2010).",
+   "spec": {
+    "name": "Ausrollen 40 min",
+    "description": "40 min sehr locker unter 55 % FTP",
+    "steps": [
+     {
+      "kind": "steady",
+      "min": 40,
+      "pct": [
+       45,
+       55
+      ],
+      "label": "Ganz locker"
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "rec_opener": {
+   "focus": "recovery",
+   "name": "Locker mit Öffnern",
+   "evidence": "In Entlastungswochen halten wenige kurze, harte Reize die Form, während sich der Körper erholt (Mølmen et al. 2019).",
+   "spec": {
+    "name": "Locker + 3 Oeffner",
+    "description": "Lockere Einheit mit 3 x 1 min zügig",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 10,
+      "pct": [
+       50,
+       60
+      ]
+     },
+     {
+      "kind": "steady",
+      "min": 20,
+      "pct": [
+       60,
+       70
+      ],
+      "label": "Grundlage"
+     },
+     {
+      "repeat": 3,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 1,
+        "pct": [
+         110,
+         115
+        ],
+        "label": "Öffner"
+       },
+       {
+        "kind": "recovery",
+        "min": 2,
+        "pct": [
+         50,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 6,
+      "pct": [
+       45,
+       55
+      ]
+     }
+    ]
+   },
+   "sport": "cycling"
+  },
+  "run_easy_45": {
+   "sport": "running",
+   "focus": "base",
+   "name": "Lockerer Lauf 45 min",
+   "evidence": "Rund 80 % der Trainingszeit locker ist die Basis wirksamer Ausdauerentwicklung (Seiler 2010).",
+   "spec": {
+    "sport": "running",
+    "name": "Lockerer Lauf 45 min",
+    "description": "45 min locker in Zone 2",
+    "steps": [
+     {
+      "kind": "steady",
+      "min": 45,
+      "target": "Zone 2, Unterhaltung möglich",
+      "label": "Lockerer Lauf"
+     }
+    ]
+   }
+  },
+  "run_long_90": {
+   "sport": "running",
+   "focus": "base",
+   "name": "Langer Lauf 90 min",
+   "evidence": "Lange lockere Läufe bauen aerobe Basis und Ermüdungsresistenz auf; der Umfang zählt (Seiler 2010).",
+   "spec": {
+    "sport": "running",
+    "name": "Langer Lauf 90 min",
+    "description": "90 min ruhig, Zone 2",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 10,
+      "target": "Zone 1–2",
+      "label": "Einlaufen"
+     },
+     {
+      "kind": "steady",
+      "min": 75,
+      "target": "Zone 2",
+      "label": "Langer Lauf"
+     },
+     {
+      "kind": "cooldown",
+      "min": 5,
+      "target": "Zone 1",
+      "label": "Auslaufen"
+     }
+    ]
+   }
+  },
+  "run_tempo_3x10": {
+   "sport": "running",
+   "focus": "threshold",
+   "name": "Schwelle 3 × 10 min",
+   "evidence": "Schwellen-Intervalle heben die Laktatschwelle bei überschaubarer Ermüdung (Seiler 2010).",
+   "spec": {
+    "sport": "running",
+    "name": "Schwelle 3x10 min",
+    "description": "3 x 10 min an der Schwelle",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "target": "Zone 1–2",
+      "label": "Einlaufen"
+     },
+     {
+      "repeat": 3,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 10,
+        "target": "ca. Halbmarathon-Tempo, untere Zone 4",
+        "label": "Schwelle"
+       },
+       {
+        "kind": "recovery",
+        "min": 3,
+        "target": "locker",
+        "label": "Traben"
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "target": "Zone 1",
+      "label": "Auslaufen"
+     }
+    ]
+   }
+  },
+  "run_vo2_5x3": {
+   "sport": "running",
+   "focus": "vo2max",
+   "name": "VO2max 5 × 3 min",
+   "evidence": "Intervalle von 3–5 min nahe der VO2max maximieren die Zeit im Zielbereich (Buchheit & Laursen 2013).",
+   "spec": {
+    "sport": "running",
+    "name": "VO2max 5x3 min",
+    "description": "5 x 3 min im 3–5-km-Tempo",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "target": "Zone 1–2, am Ende 3 Steigerungen",
+      "label": "Einlaufen"
+     },
+     {
+      "repeat": 5,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 3,
+        "target": "3–5-km-Wettkampftempo, Zone 5",
+        "label": "VO2max"
+       },
+       {
+        "kind": "recovery",
+        "min": 3,
+        "target": "locker",
+        "label": "Traben"
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "target": "Zone 1",
+      "label": "Auslaufen"
+     }
+    ]
+   }
+  },
+  "run_hills_8x60": {
+   "sport": "running",
+   "focus": "climbing",
+   "name": "Bergläufe 8 × 60 s",
+   "evidence": "Kurze Intervalle nahe der VO2max (Buchheit & Laursen 2013); bergauf mit geringerer Stoßbelastung.",
+   "spec": {
+    "sport": "running",
+    "name": "Berg 8x60 s",
+    "description": "8 x 60 s bergauf, 6–8 % Steigung",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "target": "Zone 1–2",
+      "label": "Einlaufen"
+     },
+     {
+      "repeat": 8,
+      "steps": [
+       {
+        "kind": "interval",
+        "sec": 60,
+        "target": "zügig, Zone 4–5, 6–8 % Steigung",
+        "label": "Bergauf"
+       },
+       {
+        "kind": "recovery",
+        "min": 2,
+        "target": "locker gehen oder traben",
+        "label": "Bergab"
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "target": "Zone 1",
+      "label": "Auslaufen"
+     }
+    ]
+   }
+  },
+  "run_strides_6": {
+   "sport": "running",
+   "focus": "base",
+   "name": "Locker mit Steigerungen",
+   "evidence": "Kurze, lockere Steigerungsläufe halten Schnelligkeit und Laufstil, ohne nennenswert zu ermüden.",
+   "spec": {
+    "sport": "running",
+    "name": "Locker + 6 Steigerungen",
+    "description": "30 min locker, 6 Steigerungen",
+    "steps": [
+     {
+      "kind": "steady",
+      "min": 30,
+      "target": "Zone 2",
+      "label": "Lockerer Lauf"
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "interval",
+        "sec": 20,
+        "target": "schnell und locker, nicht sprinten",
+        "label": "Steigerung"
+       },
+       {
+        "kind": "recovery",
+        "sec": 60,
+        "target": "gehen oder traben",
+        "label": "Gehen"
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 5,
+      "target": "Zone 1",
+      "label": "Auslaufen"
+     }
+    ]
+   }
+  },
+  "swim_tech_2000": {
+   "sport": "swimming",
+   "focus": "base",
+   "name": "Technik 2000 m",
+   "evidence": "Technikarbeit verbessert die Effizienz im Wasser; lockerer Umfang bildet die Basis (Seiler 2010).",
+   "spec": {
+    "sport": "swimming",
+    "name": "Technik 2000 m",
+    "description": "Technikeinheit mit Pull-Buoy",
+    "steps": [
+     {
+      "kind": "warmup",
+      "m": 400,
+      "target": "locker, Kraul und Rücken gemischt",
+      "label": "Einschwimmen"
+     },
+     {
+      "repeat": 8,
+      "steps": [
+       {
+        "kind": "interval",
+        "m": 50,
+        "target": "Technikübung, z. B. Abschlag oder Faust",
+        "label": "Technik",
+        "rest_sec": 20
+       }
+      ]
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "steady",
+        "m": 100,
+        "target": "locker, saubere Technik",
+        "label": "Kraul",
+        "rest_sec": 20
+       }
+      ]
+     },
+     {
+      "kind": "steady",
+      "m": 400,
+      "target": "locker, ruhiger Zug",
+      "label": "Pull-Buoy"
+     },
+     {
+      "kind": "cooldown",
+      "m": 200,
+      "target": "sehr locker",
+      "label": "Ausschwimmen"
+     }
+    ]
+   }
+  },
+  "swim_css_10x100": {
+   "sport": "swimming",
+   "focus": "threshold",
+   "name": "CSS 10 × 100 m",
+   "evidence": "Intervalle im Tempo der kritischen Schwimmgeschwindigkeit (CSS) trainieren die Schwelle im Wasser (Wakayoshi et al. 1992).",
+   "spec": {
+    "sport": "swimming",
+    "name": "CSS 10x100 m",
+    "description": "10 x 100 m im CSS-Tempo",
+    "steps": [
+     {
+      "kind": "warmup",
+      "m": 400,
+      "target": "locker",
+      "label": "Einschwimmen"
+     },
+     {
+      "repeat": 4,
+      "steps": [
+       {
+        "kind": "interval",
+        "m": 50,
+        "target": "von locker bis zügig",
+        "label": "Steigernd",
+        "rest_sec": 15
+       }
+      ]
+     },
+     {
+      "repeat": 10,
+      "steps": [
+       {
+        "kind": "interval",
+        "m": 100,
+        "target": "CSS-Tempo",
+        "label": "CSS",
+        "rest_sec": 15
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "m": 200,
+      "target": "sehr locker",
+      "label": "Ausschwimmen"
+     }
+    ]
+   }
+  },
+  "swim_endurance_3000": {
+   "sport": "swimming",
+   "focus": "base",
+   "name": "Ausdauer 3000 m",
+   "evidence": "Lockerer Umfang im Wasser verbessert die aerobe Basis (Seiler 2010).",
+   "spec": {
+    "sport": "swimming",
+    "name": "Ausdauer 3000 m",
+    "description": "3 x 600 m Grundlage",
+    "steps": [
+     {
+      "kind": "warmup",
+      "m": 400,
+      "target": "locker",
+      "label": "Einschwimmen"
+     },
+     {
+      "repeat": 3,
+      "steps": [
+       {
+        "kind": "steady",
+        "m": 600,
+        "target": "CSS + 8–10 s pro 100 m",
+        "label": "Grundlage",
+        "rest_sec": 30
+       }
+      ]
+     },
+     {
+      "repeat": 6,
+      "steps": [
+       {
+        "kind": "interval",
+        "m": 50,
+        "target": "Technikübung",
+        "label": "Technik",
+        "rest_sec": 15
+       }
+      ]
+     },
+     {
+      "kind": "steady",
+      "m": 300,
+      "target": "locker",
+      "label": "Pull-Buoy"
+     },
+     {
+      "kind": "cooldown",
+      "m": 200,
+      "target": "sehr locker",
+      "label": "Ausschwimmen"
+     }
+    ]
+   }
+  },
+  "str_adapt": {
+   "sport": "strength",
+   "focus": "strength",
+   "name": "Kraft: Gewöhnung",
+   "evidence": "Eine Gewöhnungsphase mit leichteren Gewichten bereitet Sehnen und Technik auf schweres Krafttraining vor (Rønnestad & Mujika 2014).",
+   "spec": {
+    "sport": "strength",
+    "name": "Kraft Gewoehnung",
+    "description": "2–3 Wochen, leichte Gewichte, saubere Technik",
+    "exercises": [
+     {
+      "name": "Goblet Squat",
+      "label": "Kniebeuge mit Kurzhantel",
+      "sets": 3,
+      "reps": 12,
+      "rest_sec": 60,
+      "load": "RPE 6"
+     },
+     {
+      "name": "Romanian Deadlift",
+      "label": "Rumänisches Kreuzheben",
+      "sets": 3,
+      "reps": 12,
+      "rest_sec": 60,
+      "load": "RPE 6"
+     },
+     {
+      "name": "Walking Lunge",
+      "label": "Ausfallschritte gehend (je Bein)",
+      "sets": 3,
+      "reps": 10,
+      "rest_sec": 60,
+      "load": "RPE 6"
+     },
+     {
+      "name": "Step-up",
+      "label": "Aufsteiger (je Bein)",
+      "sets": 3,
+      "reps": 10,
+      "rest_sec": 60,
+      "load": "RPE 6"
+     },
+     {
+      "name": "Plank",
+      "label": "Unterarmstütz 40 s",
+      "sets": 3,
+      "reps": 1,
+      "rest_sec": 45,
+      "load": "40 s halten"
+     },
+     {
+      "name": "Dead Bug",
+      "label": "Dead Bug",
+      "sets": 3,
+      "reps": 10,
+      "rest_sec": 45,
+      "load": "langsam"
+     }
+    ]
+   }
+  },
+  "str_bike_max": {
+   "sport": "strength",
+   "focus": "strength",
+   "name": "Kraft Rad: Maximalkraft",
+   "evidence": "Schweres Krafttraining mit wenigen Wiederholungen verbessert Leistung und Ökonomie von Radfahrern (Rønnestad & Mujika 2014).",
+   "spec": {
+    "sport": "strength",
+    "name": "Kraft Rad Maximalkraft",
+    "description": "Grundlagenphase, 2 x pro Abschnitt",
+    "exercises": [
+     {
+      "name": "Barbell Back Squat",
+      "label": "Kniebeuge mit Langhantel",
+      "sets": 4,
+      "reps": 5,
+      "rest_sec": 180,
+      "load": "RPE 8, ca. 80–85 % vom Maximum"
+     },
+     {
+      "name": "Barbell Deadlift",
+      "label": "Kreuzheben",
+      "sets": 3,
+      "reps": 5,
+      "rest_sec": 180,
+      "load": "RPE 8"
+     },
+     {
+      "name": "Dumbbell Bulgarian Split Squat",
+      "label": "Bulgarische Kniebeuge (je Bein)",
+      "sets": 3,
+      "reps": 6,
+      "rest_sec": 120,
+      "load": "RPE 8"
+     },
+     {
+      "name": "Standing Calf Raise",
+      "label": "Wadenheben",
+      "sets": 3,
+      "reps": 10,
+      "rest_sec": 60,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Plank",
+      "label": "Unterarmstütz 45 s",
+      "sets": 3,
+      "reps": 1,
+      "rest_sec": 45,
+      "load": "45 s halten"
+     }
+    ]
+   }
+  },
+  "str_bike_maint": {
+   "sport": "strength",
+   "focus": "strength",
+   "name": "Kraft Rad: Erhalt",
+   "evidence": "Eine Krafteinheit pro Woche reicht, um die gewonnene Kraft in Wettkampfphasen zu erhalten (Rønnestad & Mujika 2014).",
+   "spec": {
+    "sport": "strength",
+    "name": "Kraft Rad Erhalt",
+    "description": "Aufbau- und Wettkampfphase, 1 x pro Abschnitt",
+    "exercises": [
+     {
+      "name": "Barbell Back Squat",
+      "label": "Kniebeuge mit Langhantel",
+      "sets": 2,
+      "reps": 4,
+      "rest_sec": 180,
+      "load": "RPE 8"
+     },
+     {
+      "name": "Romanian Deadlift",
+      "label": "Rumänisches Kreuzheben",
+      "sets": 2,
+      "reps": 5,
+      "rest_sec": 150,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Step-up",
+      "label": "Aufsteiger (je Bein)",
+      "sets": 2,
+      "reps": 6,
+      "rest_sec": 90,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Side Plank",
+      "label": "Seitstütz 30 s je Seite",
+      "sets": 2,
+      "reps": 1,
+      "rest_sec": 30,
+      "load": "30 s halten"
+     }
+    ]
+   }
+  },
+  "str_run": {
+   "sport": "strength",
+   "focus": "strength",
+   "name": "Kraft Laufen",
+   "evidence": "Kraft- und Sprungkrafttraining verbessert die Laufökonomie von Ausdauersportlern (Beattie et al. 2014).",
+   "spec": {
+    "sport": "strength",
+    "name": "Kraft Laufen",
+    "description": "einbeinig, Waden, Sprungkraft",
+    "exercises": [
+     {
+      "name": "Single-leg Romanian Deadlift with Dumbbell",
+      "label": "Einbeiniges Kreuzheben (je Bein)",
+      "sets": 3,
+      "reps": 8,
+      "rest_sec": 90,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Dumbbell Bulgarian Split Squat",
+      "label": "Bulgarische Kniebeuge (je Bein)",
+      "sets": 3,
+      "reps": 8,
+      "rest_sec": 90,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Single-leg Standing Calf Raise",
+      "label": "Einbeiniges Wadenheben (je Bein)",
+      "sets": 3,
+      "reps": 12,
+      "rest_sec": 60,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Box Jump",
+      "label": "Kastensprung",
+      "sets": 3,
+      "reps": 5,
+      "rest_sec": 90,
+      "load": "explosiv, weich landen"
+     },
+     {
+      "name": "Side Plank",
+      "label": "Seitstütz 30 s je Seite",
+      "sets": 2,
+      "reps": 1,
+      "rest_sec": 30,
+      "load": "30 s halten"
+     },
+     {
+      "name": "Dead Bug",
+      "label": "Dead Bug",
+      "sets": 2,
+      "reps": 10,
+      "rest_sec": 45,
+      "load": "langsam"
+     }
+    ]
+   }
+  },
+  "str_swim": {
+   "sport": "strength",
+   "focus": "strength",
+   "name": "Kraft Schwimmen",
+   "evidence": "Krafttraining ergänzt das Ausdauertraining ohne Nachteile für die Ausdauer (Beattie et al. 2014); Fokus Zugmuskulatur und Schulterstabilität.",
+   "spec": {
+    "sport": "strength",
+    "name": "Kraft Schwimmen",
+    "description": "Zugmuskulatur und Schulterstabilität",
+    "exercises": [
+     {
+      "name": "Pull-up",
+      "label": "Klimmzug",
+      "sets": 3,
+      "reps": 6,
+      "rest_sec": 120,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Bent-over Row with Dumbbell",
+      "label": "Rudern vorgebeugt mit Kurzhantel",
+      "sets": 3,
+      "reps": 10,
+      "rest_sec": 90,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Push-up",
+      "label": "Liegestütz",
+      "sets": 3,
+      "reps": 12,
+      "rest_sec": 60,
+      "load": "RPE 7"
+     },
+     {
+      "name": "Face Pull",
+      "label": "Face Pull",
+      "sets": 3,
+      "reps": 12,
+      "rest_sec": 60,
+      "load": "leicht, saubere Ausführung"
+     },
+     {
+      "name": "Banded External Rotation",
+      "label": "Außenrotation mit Band",
+      "sets": 2,
+      "reps": 15,
+      "rest_sec": 45,
+      "load": "leicht"
+     },
+     {
+      "name": "Plank",
+      "label": "Unterarmstütz 45 s",
+      "sets": 3,
+      "reps": 1,
+      "rest_sec": 45,
+      "load": "45 s halten"
+     },
+     {
+      "name": "Russian Twist",
+      "label": "Russian Twist",
+      "sets": 2,
+      "reps": 16,
+      "rest_sec": 45,
+      "load": "kontrolliert"
+     }
+    ]
+   }
+  },
+  "brick_bike90_run20": {
+   "sport": "brick",
+   "focus": "specific",
+   "name": "Koppeltraining Rad 90 min + Lauf 20 min",
+   "evidence": "Koppeltraining gewöhnt die Beine an den Wechsel vom Rad zum Laufen.",
+   "spec": {
+    "sport": "brick",
+    "name": "Koppel Rad 90 + Lauf 20",
+    "description": "Rad wettkampfnah, direkt danach laufen",
+    "parts": [
+     {
+      "sport": "cycling",
+      "name": "Rad 90 min",
+      "steps": [
+       {
+        "kind": "warmup",
+        "min": 15,
+        "pct": [
+         55,
+         70
+        ]
+       },
+       {
+        "kind": "steady",
+        "min": 70,
+        "pct": [
+         70,
+         80
+        ],
+        "label": "Wettkampfnah"
+       },
+       {
+        "kind": "cooldown",
+        "min": 5,
+        "pct": [
+         55,
+         65
+        ]
+       }
+      ]
+     },
+     {
+      "sport": "running",
+      "name": "Lauf 20 min",
+      "steps": [
+       {
+        "kind": "steady",
+        "min": 15,
+        "target": "Wettkampftempo, locker beginnen",
+        "label": "Lauf"
+       },
+       {
+        "kind": "cooldown",
+        "min": 5,
+        "target": "Zone 1",
+        "label": "Auslaufen"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "climb_sst_3x20": {
+   "sport": "cycling",
+   "focus": "climbing",
+   "name": "Berg: Sweet Spot 3 × 20 min",
+   "evidence": "Lange Intervalle knapp unter der Schwelle bereiten auf lange Anstiege vor und heben die Schwelle (Seiler 2010).",
+   "spec": {
+    "name": "Berg Sweet Spot 3x20",
+    "description": "3 x 20 min Sweet Spot, wenn möglich am Berg",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 3,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 20,
+        "pct": [
+         88,
+         93
+        ],
+        "label": "Sweet Spot am Berg"
+       },
+       {
+        "kind": "recovery",
+        "min": 5,
+        "pct": [
+         50,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   }
+  },
+  "climb_lowcad_5x6": {
+   "sport": "cycling",
+   "focus": "climbing",
+   "name": "Berg: Kraftausdauer 5 × 6 min",
+   "evidence": "Bereitet auf lange Anstiege mit niedriger Trittfrequenz vor; zusätzliche Leistungseffekte sind in Studien klein (Kristoffersen et al. 2014).",
+   "spec": {
+    "name": "Kraftausdauer 5x6 min",
+    "description": "5 x 6 min bei 50–60 U/min",
+    "steps": [
+     {
+      "kind": "warmup",
+      "min": 15,
+      "pct": [
+       55,
+       75
+      ]
+     },
+     {
+      "repeat": 5,
+      "steps": [
+       {
+        "kind": "interval",
+        "min": 6,
+        "pct": [
+         85,
+         90
+        ],
+        "label": "Kraftausdauer 50–60 U/min"
+       },
+       {
+        "kind": "recovery",
+        "min": 4,
+        "pct": [
+         50,
+         55
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "cooldown",
+      "min": 10,
+      "pct": [
+       45,
+       60
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

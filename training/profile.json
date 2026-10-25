@@ -1,0 +1,73 @@
+{
+ "version": 1,
+ "updated": "2026-10-25",
+ "setup_done": false,
+ "sports": [
+  "cycling"
+ ],
+ "multisport": null,
+ "goal": {
+  "type": "fitness",
+  "fitness": {
+   "focus": [
+    "vo2max",
+    "anaerobic",
+    "base"
+   ]
+  }
+ },
+ "secondary_events": [],
+ "availability": {
+  "hours": {
+   "mon": 1.5,
+   "tue": 1.5,
+   "wed": 1.5,
+   "thu": 1.5,
+   "fri": 1.5,
+   "sat": 3.5,
+   "sun": 3.5
+  },
+  "long_days": [],
+  "rest_days": {
+   "mode": "dynamic",
+   "days": [],
+   "min_per_cycle": 1
+  }
+ },
+ "strength": {
+  "enabled": false,
+  "confirmed_at": null,
+  "location": null,
+  "equipment": [],
+  "experience": null,
+  "per_cycle": 0
+ },
+ "thresholds": {
+  "cycling_ftp_w": {
+   "source": "garmin"
+  },
+  "running_threshold_pace": null,
+  "running_lthr": null,
+  "swim_css_per_100m": null,
+  "max_hr": {
+   "source": "garmin"
+  }
+ },
+ "constraints": {
+  "injuries": "",
+  "indoor_zwift": true,
+  "power_meter_bikes": [],
+  "pool_length_m": 25,
+  "age": null
+ },
+ "rest_rules": {
+  "readiness_low": 50,
+  "recovery_time_h": 24,
+  "load_ratio": 1.3,
+  "sleep_score": 70,
+  "rhr_delta": 3,
+  "rhr_alarm": 5,
+  "days_in_row": 6,
+  "signals_for_rest": 3
+ }
+}

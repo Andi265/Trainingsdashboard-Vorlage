@@ -1,0 +1,86 @@
+name: Routine results (journal + calendar)
+
+# The routines (and the trainer settings dialog in a cloud session) can only push to their own
+# claude/... branch. This job takes the files the branch changed - journal.md, scheduled/<date>.json
+# and training/profile.json, season.json, schedule.json - onto main (so the next routine reads them),
+# puts a new workout into the Garmin calendar (calendar_upload.py may only create and schedule
+# workouts) and removes the branch. Files the branch did not change stay as they are on main.
+# A push whose last commit starts with "[data-sync]" is a sync request; data-sync.yml handles it.
+on:
+  push:
+    branches: ["claude/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event_name != 'push' || !startsWith(github.event.head_commit.message, '[data-sync]')
+    concurrency:
+      group: data-sync
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Take the files the routine's branch changed
+        if: github.event_name == 'push'
+        run: |
+          git fetch origin "${GITHUB_REF}"
+          changed=$(git diff --name-only "$(git merge-base HEAD FETCH_HEAD)" FETCH_HEAD)
+          for f in $changed; do
+            case "$f" in
+              journal.md|scheduled/*|training/profile.json|training/season.json|training/schedule.json)
+                if git cat-file -e "FETCH_HEAD:$f" 2>/dev/null; then
+                  git checkout FETCH_HEAD -- "$f"
+                  echo "Taken from the branch: $f"
+                fi ;;
+              *) echo "Ignored: $f" ;;
+            esac
+          done
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Restore Garmin login token
+        env:
+          VAULT_KEY: ${{ secrets.VAULT_KEY }}
+        run: python token_vault.py restore
+
+      - name: Upload and schedule a new workout (only workout writes allowed)
+        run: python calendar_upload.py
+
+      - name: Save refreshed token
+        if: always()
+        env:
+          VAULT_KEY: ${{ secrets.VAULT_KEY }}
+        run: python token_vault.py store
+
+      - name: Commit to main
+        if: always()
+        run: |
+          git config user.name "data-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add journal.md scheduled vault training
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          zone=$(python -c 'import settings; print(settings.load()["timezone"])')
+          git commit -m "Routine results $(TZ="$zone" date '+%Y-%m-%d %H:%M')"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Remove the routine's branch
+        if: success() && github.event_name == 'push'
+        run: git push origin --delete "${GITHUB_REF_NAME}"

@@ -1,0 +1,10 @@
+{
+ "name": "",
+ "timezone": "Europe/Berlin",
+ "links": {
+  "morning_briefing": "",
+  "daily_wrapup": ""
+ },
+ "calendar_upload": false,
+ "push_notifications": true
+}

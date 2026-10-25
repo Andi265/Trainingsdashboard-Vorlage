@@ -1,0 +1,3 @@
+garminconnect>=0.3.17,<0.4
+tzdata
+cryptography

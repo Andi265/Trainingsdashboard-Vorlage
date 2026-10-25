@@ -1,0 +1,78 @@
+name: Data sync
+
+# Runs when a routine asks for it: at its start the routine pushes an empty commit whose message starts with
+# "[data-sync]" to its own claude/... branch (`briefing.py wait-sync --request`). The job reads Garmin Connect
+# (read-only), commits the data to main and deletes the request branch. Other pushes to claude/... (the routines'
+# results) skip this job. There is no fixed schedule; each sync fetches every day since the last one
+# (`--days auto`), so a pause leaves no gap. It can also be started by hand ("Run workflow").
+on:
+  push:
+    branches: ["claude/**"]
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "How many days back to sync (a number, or auto = every day since the last sync)"
+        default: "auto"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event_name != 'push' || startsWith(github.event.head_commit.message, '[data-sync]')
+    concurrency:
+      group: data-sync
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Restore Garmin login token
+        env:
+          VAULT_KEY: ${{ secrets.VAULT_KEY }}
+        run: python token_vault.py restore
+
+      - name: Read data from Garmin Connect (read-only)
+        run: python sync.py --days "${{ inputs.days || 'auto' }}"
+
+      - name: Save refreshed token
+        if: always()
+        env:
+          VAULT_KEY: ${{ secrets.VAULT_KEY }}
+        run: python token_vault.py store
+
+      - name: Commit and push
+        if: always()
+        run: |
+          git config user.name "data-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data vault
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          zone=$(python -c 'import settings; print(settings.load()["timezone"])')
+          git commit -m "Data sync $(TZ="$zone" date '+%Y-%m-%d %H:%M')"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Remove the request branch
+        if: always() && github.event_name == 'push'
+        run: |
+          # Only if it still holds just the request (the routine has not pushed its results there yet).
+          if [ "$(git ls-remote origin "refs/heads/${GITHUB_REF_NAME}" | cut -f1)" = "${GITHUB_SHA}" ]; then
+            git push origin --delete "${GITHUB_REF_NAME}"
+          else
+            echo "Branch already gone or reused by the routine; left as it is."
+          fi
